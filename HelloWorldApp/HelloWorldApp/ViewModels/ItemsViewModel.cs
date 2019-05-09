@@ -28,6 +28,8 @@ namespace HelloWorldApp.ViewModels
                 Items.Add(newItem);
                 Analytics.TrackEvent("Adding new item");
                 await DataStore.AddItemAsync(newItem);
+                var count = DataStore.GetItemCountAsync();
+                Analytics.TrackEvent($"Item added", new System.Collections.Generic.Dictionary<string, string> {{ "New count", count.Result.ToString()}});
             });
         }
 
