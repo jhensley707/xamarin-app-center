@@ -26,6 +26,12 @@ namespace HelloWorldApp.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            #region Code for starting up the Xamarin Test Cloud Agent
+#if ENABLE_TEST_CLOUD
+            Xamarin.Calabash.Start();
+#endif
+            #endregion
+
             return base.FinishedLaunching(app, options);
         }
 
