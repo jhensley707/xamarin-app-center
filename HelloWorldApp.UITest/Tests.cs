@@ -195,7 +195,7 @@ namespace HelloWorldApp.UITest
         [Test]
         public void AboutViewDisplayed()
         {
-            app.WaitForElement(c => c.Marked(BrowsePageTitle), timeoutMessage: $"{BrowsePageTitle} title not found", timeout: new TimeSpan(0, 0, 5));
+            app.WaitForElement(c => c.Marked(BrowseTitle), timeoutMessage: $"{BrowseTitle} title not found", timeout: new TimeSpan(0, 0, 5));
 
             if (this.platform == Platform.Android)
             {
