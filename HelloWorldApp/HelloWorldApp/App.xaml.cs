@@ -6,6 +6,7 @@ using Microsoft.AppCenter.Push;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HelloWorldApp.Views;
+using HelloWorldApp.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace HelloWorldApp
@@ -13,10 +14,15 @@ namespace HelloWorldApp
     public partial class App : Application
     {
 
+        public static bool UseMockDataStore = true;
         public App()
         {
             InitializeComponent();
 
+            if (UseMockDataStore)
+            {
+                DependencyService.Register<MockDataStore>();
+            }
 
             MainPage = new MainPage();
         }
